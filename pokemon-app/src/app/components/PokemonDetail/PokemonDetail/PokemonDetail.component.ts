@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ApiService } from '../../../api.service';
+import { ApiService, PokemonDetail } from '../../../api.service';
 import { switchMap } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ import { switchMap } from 'rxjs';
   styleUrl: './PokemonDetail.component.scss',
 })
 export class PokemonDetailComponent implements OnInit{ 
-  public pokemon:any;
+  public pokemon:PokemonDetail | null = null;
 
 
   constructor(private readonly route: ActivatedRoute, private readonly apiService: ApiService) {}
