@@ -13,7 +13,14 @@ export interface PokemonsModel{
      previous:null | string;
      results:Pokemon[];
 }
-
+export interface PokemonDetail{
+    name:string;
+    sprites:any;
+    height:number;
+    weight:number;
+    abilities:any[];
+    stats:any[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +35,7 @@ export class ApiService {
     return this.http.get<PokemonsModel>(`${this.URL_BASE}/pokemon?limit=${limit}&offset=${offset}`);
   }
 
-  getPokemonDetails(name: string): Observable<any> {
-    return this.http.get<any>(`${this.URL_BASE}/pokemon/${name}`);
+  getPokemonDetails(name: string): Observable<PokemonDetail> {
+    return this.http.get<PokemonDetail>(`${this.URL_BASE}/pokemon/${name}`);
   }
 }
