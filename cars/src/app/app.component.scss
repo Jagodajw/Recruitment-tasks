@@ -1,0 +1,66 @@
+:host {
+    display: block;
+    margin: 20px 90.5px;
+  }
+.container{
+    &-row{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+
+    h4{
+        color: rgb(0, 0, 0);
+    }  
+}
+
+.btn{
+    border-radius: 5px;
+    color: blueviolet;
+    padding: 5px 15px;
+    font-size: larger;
+    border-style: none;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+    &-close{
+        color:rgb(255, 9, 9);
+    }
+}
+
+.model{
+    display: none;
+}
+.popup{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &-header{
+        display: flex;
+        justify-content: center;
+        color:rgb(16, 130, 230)
+    }
+    &-form{
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        align-self: center;
+
+    }
+    &-btn{
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.form-control{
+    margin-left: 10px;
+}

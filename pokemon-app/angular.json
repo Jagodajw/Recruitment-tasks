@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cars": {
+    "pokemon-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cars",
+            "outputPath": "dist/pokemon-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cars:build:production"
+              "buildTarget": "pokemon-app:build:production"
             },
             "development": {
-              "buildTarget": "cars:build:development"
+              "buildTarget": "pokemon-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,6 +107,6 @@
     }
   },
   "cli": {
-    "analytics": "12a1aaca-6a86-435d-aed7-d7c61a62d183"
+    "analytics": "4b4ad343-eac8-4393-858b-d0de774bdef1"
   }
 }
