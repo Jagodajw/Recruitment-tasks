@@ -39,15 +39,23 @@ export class AppComponent {
 
   openPopup(): void{
     const popup = document.getElementById("popup");
+    const list = document.getElementById("list");
     if (popup != null) {
       popup.style.display = 'block'
+    }
+    if (list != null){
+      list.style.display = 'none'
     }
   }
 
   close(): void{
     this.carObj = new Car();
+    const list = document.getElementById("list");
     if (this.popup != null) {
       this.popup.nativeElement.style.display = 'none';
+    }
+    if (list != null){
+      list.style.display = 'flex'
     }
   }
 
@@ -67,7 +75,6 @@ export class AppComponent {
       localStorage.setItem(this.localStorageKey, JSON.stringify(newArr));
     }
     this.close()
-  
   }
   
 }

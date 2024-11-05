@@ -5,16 +5,16 @@
     </button>
   </div> 
   @if (carList.length !== 0){
-    <div class="row">
+    <div class="container-row" id="list" #list>
       @for (item of carList; track $index) {
-      <div class="col-3 pt-2">
+      <div class="container-row-col">
         <div class="card">
           <div class="card-header">
                 {{item.brand}}&nbsp;{{item.model}}&nbsp;{{item.year}}
           </div>
           <div class="card-body">
-            <p>Part: {{item.part}}</p>
-            <p>Cost: {{item.cost}} $</p>
+            <p>Part: <span>{{item.part}}</span></p>
+            <p>Cost: <span>{{item.cost}} $</span></p>
           </div>
         </div>
       </div>
