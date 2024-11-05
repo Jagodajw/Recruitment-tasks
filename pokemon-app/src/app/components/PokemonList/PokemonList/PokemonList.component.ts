@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import {  Component, OnInit } from '@angular/core';
+import {  Component } from '@angular/core';
 import { ApiService, Pokemon } from '../../../api.service';
 import { RouterModule } from '@angular/router';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,21 +13,13 @@ import { RouterModule } from '@angular/router';
   templateUrl: './PokemonList.component.html',
   styleUrl: './PokemonList.component.scss',
 })
-export class PokemonListComponent implements OnInit {
-  public pokemons: Pokemon[] = [];
+export class PokemonListComponent {
+  public pokemons$: Observable<Pokemon[]>;
 
   constructor(
     private readonly api: ApiService, 
-  ) {}
-
-  ngOnInit(): void {
-    this.getAllPokemons()
-  }
-
-  getAllPokemons() : void {
-    this.api.getPokemons().subscribe(res => {
-     this.pokemons =  res.results
-    });
+  ) {
+    this.pokemons$ = this.api.getPokemons().pipe(map(({results})=>results))
   }
 
  }

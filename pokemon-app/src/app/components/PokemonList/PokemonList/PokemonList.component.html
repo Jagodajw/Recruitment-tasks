@@ -1,5 +1,5 @@
 <ul>
-    @for (pokemon of pokemons; track $index){
+    @for (pokemon of (pokemons$ | async); track $index){
         <li>
             <a [routerLink]="['/pokemon', pokemon.name]">{{ pokemon.name | titlecase }}</a>
         </li>
