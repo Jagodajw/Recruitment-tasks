@@ -1,0 +1,22 @@
+@if(pokemon){
+    <h2>{{ pokemon.name | titlecase }}</h2>
+    <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }} sprite" />
+    <p><strong>Height:</strong> {{ pokemon.height }}</p>
+    <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+  
+    <h3>Abilities</h3>
+    <ul>
+        @for(ability of pokemon.abilities;; track $index){
+            <li>{{ ability.ability.name }}</li>
+        }
+    </ul>
+  
+    <h3>Stats</h3>
+    <ul>
+        @for(stat of pokemon.stats; track $index){
+            <li>
+                {{ stat.stat.name }}: {{ stat.base_stat }}
+            </li>
+        }
+    </ul>
+}
