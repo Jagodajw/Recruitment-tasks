@@ -1,0 +1,63 @@
+let persons = [
+  {
+    id: 1,
+    name: 'Jan Kowalski',
+  },
+  {
+    id: 2,
+    name: 'John Doe',
+  },
+  {
+    id: 3,
+    name: 'Jarek Kaczka',
+  },
+];
+
+let ages = [
+  {
+    person: 1,
+    age: 18,
+  },
+  {
+    person: 2,
+    age: 24,
+  },
+  {
+    person: 3,
+    age: 666,
+  },
+];
+
+let locations = [
+  {
+    person: 1,
+    country: 'Poland',
+  },
+  {
+    person: 3,
+    country: 'Poland',
+  },
+  {
+    person: 1,
+    country: 'USA',
+  },
+];
+
+const getAverageAgeOfPersonsFrom = country => {
+  const filteredLocations = locations
+    .filter(location => location.country === country)
+    .map(location => location.person);
+  const filteredAges = ages.filter(age =>
+    filteredLocations.includes(age.person)
+  );
+
+  console.log({ filteredLocations, filteredAges });
+
+  if (filteredAges.length === 0) return 0;
+
+  const sum = filteredAges.reduce((average, { age }) => average + age, 0);
+
+  return sum / filteredAges.length;
+};
+
+console.log(getAverageAgeOfPersonsFrom('Poland'));
